@@ -10,7 +10,7 @@ db_path = 'postgres://acqknfmfyczwzq:a91bd3bf9ff6555b006bb50bc696a310e63c9eb88be
 
 
 class Config:
-    DEBUG = True
+    DEBUG = False
     SECRET_KEY = "secret_key"
     SQLALCHEMY_DATABASE_URI = db_path
     SQLALCHEMY_TRACK_MODIFICATIONS = False
