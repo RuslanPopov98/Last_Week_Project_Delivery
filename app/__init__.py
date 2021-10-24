@@ -21,7 +21,7 @@ with app.app_context():
 
 # Имортируем представление
 from app.views import *
-
+print("SOBR")
 
 if __name__ == "__main__":
     app.run()

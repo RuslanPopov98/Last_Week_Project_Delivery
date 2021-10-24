@@ -27,6 +27,7 @@ admin.add_view(ModelView(Order, db.session))
 @app.route('/')
 def render_main():
     diction = []
+    print('TYT')
     # try:
     #     print(session['user'])
     # except:
