@@ -10,12 +10,13 @@ app.config.from_object(Config)
 
 db.init_app(app)
 
-
+'''
 admin = Admin(app)
 admin.add_view(ModelView(User, db.session))
 admin.add_view(ModelView(Category, db.session))
 admin.add_view(ModelView(Dish, db.session))
 admin.add_view(ModelView(Order, db.session))
+'''
 # ------------------------------------------------------# Декораторы авторизации
 # def login_required(f):
 # (код декоратора)
@@ -23,11 +24,11 @@ admin.add_view(ModelView(Order, db.session))
 # def admin_only(f):
 # (код декоратора)
 
-
+print('TYT1')
 @app.route('/')
 def render_main():
     diction = []
-    print('TYT')
+    print('TYT2')
     # try:
     #     print(session['user'])
     # except:
