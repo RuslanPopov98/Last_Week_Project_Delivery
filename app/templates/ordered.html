@@ -1,6 +1,6 @@
-<!DOCTYPE html>
-<html lang="ru">
+{% extends 'base.html' %}
 
+{% block container %}
 <head>
   <title>Request | Stepik Delivery</title>
   <meta charset="utf-8">
@@ -17,12 +17,12 @@
             <h1 class="h3 mb-3 ">Заявка отправлена</h1>
             <p class="mb-4">Скоро мы вам перезвоним</p>
             <p class="mt-4 mb-3">Войдите в&nbsp;личный кабинет, чтобы отслеживать статус заказа</p>
+            {% if not session['cart'] %}
             <a href="#" class="btn btn-primary btn-lg mt-3">Войти</a>
+            {% endif %}
           </div>
         </form>
       </div>
     </div>
   </main>
-</body>
-
-</html>
+{% endblock %}
