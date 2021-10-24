@@ -31,12 +31,14 @@ def render_main():
     #     print(session['user'])
     # except:
     #     print('not user')
-
+    '''
     for category_item in range(1, db.session.query(Category).count()+1):
         category_title = get_categories(category_item)
         diction.append({'title': category_title.title, 'dishes': list(get_dishes_for_category(category_item, 3))})
 
     return render_template("main.html", diction=diction)
+    '''
+    return render_template("HI")
 
 
 @app.route('/add_to_cart/', methods=['POST'])
