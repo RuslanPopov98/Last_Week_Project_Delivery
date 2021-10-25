@@ -4,6 +4,7 @@ from app.models import db
 from flask_migrate import Migrate
 from app.models import Category, Dish, User, Order
 from flask_wtf.csrf import CSRFProtect
+import os
 
 
 app = Flask(__name__)
@@ -24,4 +25,4 @@ from app.views import *
 print("SOBR")
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=47061)
+    app.run(host="0.0.0.0", port=int(os.environ.get('PORT', 5000)))
