@@ -25,6 +25,8 @@ admin.add_view(ModelView(Order, db.session))
 # (код декоратора)
 
 print('TYT1')
+
+
 @app.route('/')
 def render_main():
     diction = []
@@ -38,7 +40,6 @@ def render_main():
         diction.append({'title': category_title.title, 'dishes': list(get_dishes_for_category(category_item, 3))})
 
     return render_template("main.html", diction=diction)
-
 
 
 @app.route('/add_to_cart/', methods=['POST'])
