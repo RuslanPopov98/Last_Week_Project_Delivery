@@ -19,18 +19,15 @@ admin.add_view(ModelView(Order, db.session))
 
 # ------------------------------------------------------# Декораторы авторизации
 # def login_required(f):
-# (код декоратора)
 
+# (код декоратора)
 # def admin_only(f):
 # (код декоратора)
-
-print('TYT1')
 
 
 @app.route('/')
 def render_main():
     diction = []
-    print('TYT2')
     # try:
     #     print(session['user'])
     # except:
@@ -73,6 +70,8 @@ def render_cart():
             form.address.default = session['user'].get('address')
             # form.phone.default = session['user'].get('phone')
             form.process()
+        else:
+            return redirect('/')
     # print(get_auth_user())
     # print(form.data)
     return render_template("cart.html", form=form, cart=get_cart())
@@ -107,7 +106,7 @@ def render_register():
     form = RegisterForm()
     if form.validate_on_submit():
         register(form)
-        return redirect('/')
+        return redirect('/auth/')
     else:
         return render_template("register.html", form=form)
 
