@@ -58,8 +58,6 @@ def render_delete_from_cart():
 @app.route('/cart/', methods=['GET', 'POST'])
 def render_cart():
     form = OrderForm()
-
-    print(session['user'])
     if form.validate_on_submit():
         create_order(form)
         session['cart'] = empty_cart()
