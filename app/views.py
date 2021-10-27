@@ -59,12 +59,15 @@ def render_delete_from_cart():
 def render_cart():
     form = OrderForm()
     # print('user= ', get_auth_user())
+    # if 'user' not in request.session:
+    #     print(None)
+    # print(session['user'])
     if form.validate_on_submit():
         create_order(form)
         session['cart'] = empty_cart()
         return redirect('/ordered/')
     else:
-        if request.method == 'GET' and session['user']:
+        if request.method == 'GET' and session.get('user'):
             form.name.default = session['user'].get('name')
             form.email.default = session['user'].get('email')
             form.address.default = session['user'].get('address')
