@@ -58,10 +58,8 @@ def render_delete_from_cart():
 @app.route('/cart/', methods=['GET', 'POST'])
 def render_cart():
     form = OrderForm()
-    # print('user= ', get_auth_user())
-    # if 'user' not in request.session:
-    #     print(None)
-    # print(session['user'])
+
+    print(session['user'])
     if form.validate_on_submit():
         create_order(form)
         session['cart'] = empty_cart()
@@ -74,6 +72,7 @@ def render_cart():
             # form.phone.default = session['user'].get('phone')
             form.process()
         else:
+            flash('Зарегистрируйтесь или Войдите для оформления заказа')
             return redirect('/')
     # print(get_auth_user())
     # print(form.data)
