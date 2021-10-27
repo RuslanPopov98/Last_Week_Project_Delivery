@@ -10,8 +10,8 @@ engine = create_engine(Config.SQLALCHEMY_DATABASE_URI)
 Session = sessionmaker(bind=engine)
 session = Session()
 
-categories_data = csv.DictReader(open('../categories.csv'), delimiter=";")
-meals_data = csv.DictReader(open('../meals.csv'), delimiter=";")
+categories_data = csv.DictReader(open('../app/categories.csv'), delimiter=";")
+meals_data = csv.DictReader(open('../app/meals.csv'), delimiter=";")
 
 with app.app_context():
     db.create_all()
