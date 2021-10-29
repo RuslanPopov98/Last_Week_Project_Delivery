@@ -40,6 +40,7 @@ class User(db.Model):
     name = db.Column(db.String(255), nullable=False)
     email = db.Column(db.String(255), nullable=False, unique=True)
     password = db.Column(db.String(255), nullable=False)
+    phone = db.Column(db.String(255), nullable=False, unique=True)
     address = db.Column(db.Text, nullable=False)
     role = db.Column(db.String(32), nullable=False)
     orders = db.relationship('Order', back_populates='user')

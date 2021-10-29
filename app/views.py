@@ -67,7 +67,7 @@ def render_cart():
             form.name.default = session['user'].get('name')
             form.email.default = session['user'].get('email')
             form.address.default = session['user'].get('address')
-            # form.phone.default = session['user'].get('phone')
+            form.phone.default = session['user'].get('phone')
             form.process()
         else:
             flash('Зарегистрируйтесь или Войдите для оформления заказа')

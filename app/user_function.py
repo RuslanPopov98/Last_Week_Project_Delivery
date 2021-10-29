@@ -76,6 +76,7 @@ def register(form):
     user.name = form.name.data
     user.email = form.email.data
     user.password = generate_password_hash(form.password.data)
+    user.phone = form.phone.data
     user.address = form.address.data
     user.role = 'user'
     db.session.add(user)
@@ -89,7 +90,8 @@ def logout():
 def login(form):
     user = db.session.query(User).filter(User.email == form.email.data).first()
     if user and check_password_hash(user.password, form.password.data):
-        session['user'] = {'id': user.id, 'role': user.role, 'email': user.email, 'name': user.name, 'address': user.address}
+        session['user'] = {'id': user.id, 'role': user.role, 'email': user.email, 'name': user.name,
+                           'address': user.address, 'phone': user.phone}
         return True
     else:
         return False
@@ -99,7 +101,7 @@ def create_order(form):
     user = get_auth_user()
     order = Order()
     order.user_id = user.get('id')
-    order.status = 'NEW' # OrderStatus.NEW
+    order.status = 'NEW'  # OrderStatus.NEW
     order.data = datetime.datetime.utcnow()
     form.populate_obj(order)
 
