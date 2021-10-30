@@ -27,6 +27,13 @@
                     {% endfor %}
                 </div>
                 <div class="form-label-group mb-4">
+                    <p class="text-muted">{{ form.phone.label.text }}</p>
+                    {{ form.phone(class='form-control') }}
+                    {% for error in form.phone.errors %}
+                        <small class="text-danger d-block">{{ error }}</small>
+                    {% endfor %}
+                </div>
+                <div class="form-label-group mb-4">
                     <p class="text-muted">{{ form.password.label.text }}</p>
                     {{ form.password(class='form-control') }}
                     {% for error in form.password.errors %}

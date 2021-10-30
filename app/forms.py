@@ -12,6 +12,7 @@ class RegisterForm(FlaskForm):
     password_confirm = PasswordField("Повторение пароля",
                                      [InputRequired(), EqualTo('password', message='Пароли не совпадают')])
     address = TextAreaField('Адрес', [InputRequired(), Length(min=5, message='Не менее 5 символов')])
+    phone = StringField('Телефон', [InputRequired(), Length(min=3, message='Не менее 3 символов')])
 
 
 class LoginForm(FlaskForm):
